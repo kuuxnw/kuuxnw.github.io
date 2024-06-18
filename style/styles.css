@@ -1,0 +1,592 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 1px; 
+}
+
+::-webkit-scrollbar-track {
+  background-color: #eae0d700;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #003b7e; 
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #0352ab;
+}
+
+
+header {
+    background-color: #eae0d7;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.head1{
+    margin-left: 15%;
+}
+
+.img_logo{
+    width: 30px;
+    height: auto;
+}
+.img_name{
+    width: 150px;
+    height: auto;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #003a7e;
+}
+
+.menu-button{
+    background-color:#003a7e;
+    color: #ffffff;
+    border-color: #003a7e;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+
+    }
+
+    .menu-button:hover {
+        background-color: #001e41;
+    }    
+
+.dropdown-menu {
+    display: none; /* Скрыть меню до активации */
+    position: absolute; /* Позиционировать относительно родительского элемента */
+    background-color: #003b7e; /* Цвет фона меню */
+    color: #fff;
+    min-width: 160px; /* Минимальная ширина меню */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Тень для "окна" меню */
+    z-index: 1; /* Убедиться, что меню будет поверх других элементов */
+    border-radius: 10px;
+    transition: transform 0.7s ease;
+
+}
+
+.dropdown-menu ul {
+    list-style: none; /* Убрать маркеры списка */
+    padding: 0; /* Убрать внутренние отступы */
+    margin: 0; /* Убрать внешние отступы */
+    transition: transform 0.7s ease, width 0.7s ease;
+    z-index: 1;
+}
+
+.dropdown-menu ul li {
+    display: block; /* Теперь каждый пункт будет на новой строке */
+    padding: 10px; /* Добавить немного отступа вокруг пунктов */
+    transition: transform 0.7s ease, width 0.7s ease;
+    z-index: 1;
+}
+
+.dropdown-menu ul li a {
+    text-decoration: none; /* Убрать подчеркивание текста ссылок */
+    color: #fff; /* Цвет текста ссылок */
+    padding: 10px 20px; /* Отступы вокруг текста для удобства клика */
+    display: block; /* Растянуть ссылку на весь блок для удобства клика */
+    position: relative; /* Добавляем, чтобы псевдоэлемент позиционировался относительно ссылки */
+    overflow: hidden;
+    transition: transform 0.7s ease, width 0.7s ease;
+    z-index: 1;
+}
+
+.dropdown-menu ul li a:hover {
+    text-decoration: none; /* Убрать подчеркивание текста ссылок */
+    color: #ffffff; /* Цвет текста ссылок */
+    padding: 10px 20px; /* Отступы вокруг текста для удобства клика */
+    display: block; /* Растянуть ссылку на весь блок для удобства клика */
+    transition: transform 0.7s ease, width 0.7s ease;
+    z-index: 1;
+}
+
+/* Стиль для отображения меню при наведении или другом событии активации */
+.dropdown-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* Изначально линия невидима */
+    height: 3px; /* Высота линии */
+    background-color: #ffffff; /* Цвет линии */
+    transform: translateX(-10px); /* Сдвигаем линию влево, чтобы она была не видна изначально */
+    transition: transform 0.7s ease, width 0.7s ease; /* Добавляем анимацию изменения ширины */
+    z-index: 1;
+}
+
+.dropdown-menu a:hover::after {
+    transform: translateX(20px); /* При наведении линия выезжает с лева на право */
+    width: 30px; /* Линия выезжает только на 50% длины слова */
+    z-index: 1;
+}
+
+.dropdown-menu a:hover {
+    color: #003a7e;
+    transition: background-color 0.3s;
+    z-index: 1;
+}
+
+.login-button {
+    background-color:#003a7e;
+    color: #ffffff;
+    border-color: #003a7e;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 15%;
+}
+
+.login-button:hover {
+    background-color: #001e41;
+}
+
+.login-button a{
+    background-color: #ffffff00;
+    color: #eae0d7;
+    text-decoration: none;
+}
+
+.logout-button {
+    background-color:#003a7e;
+    color: #ffffff;
+    border-color: #003a7e;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 15%;
+}
+
+.logout-button:hover {
+    background-color: #001e41;
+}
+
+.logout-button a{
+    background-color: #ffffff00;
+    color: #eae0d7;
+    text-decoration: none;
+}
+
+.content {
+    margin-top: 80px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.content2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -20px;
+    background-image: url(../media/bibl1.jpg);
+    height: 100px;
+}
+.content4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -80px;
+
+    background-image: url(../media/bibl1.jpg);
+    height: 100px;
+}
+
+.content4 h1{
+    color: #fff;
+    font-size: 20px;
+}
+
+.content1 {
+    margin-bottom: 100px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.content2 h1{
+    color: #fff;
+    font-size: 20px;
+}
+
+.content3 {
+    margin-top: 70px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.register {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #2e2e2e;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 50px;
+}
+
+footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+footer ul li {
+    margin-right: 20px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    position: relative; /* Добавляем, чтобы псевдоэлемент позиционировался относительно ссылки */
+    overflow: hidden; /* Обрезаем лишнее, чтобы линия появлялась внутри границ ссылки */
+}
+
+footer ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* Изначально линия невидима */
+    height: 1px; /* Высота линии */
+    background-color: #ffffff; /* Цвет линии */
+    transform: translateX(-100%); /* Сдвигаем линию влево, чтобы она была не видна изначально */
+    transition: transform 0.7s ease, width 0.7s ease; /* Добавляем анимацию изменения ширины */
+}
+
+footer ul li a:hover::after {
+    transform: translateX(0); /* При наведении линия выезжает с лева на право */
+    width: 50%; /* Линия выезжает только на 50% длины слова */
+}
+
+footer ul li a:hover {
+    color: #ffffff;
+}
+
+
+.footer1 {
+    background-color: #003a7e;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+}
+
+.footer1 ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.footer1 ul li {
+    margin-right: 20px;
+}
+
+.footer1 ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    position: relative; /* Добавляем, чтобы псевдоэлемент позиционировался относительно ссылки */
+    overflow: hidden; /* Обрезаем лишнее, чтобы линия появлялась внутри границ ссылки */
+    z-index: 0;
+}
+
+.footer1 ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* Изначально линия невидима */
+    height: 1px; /* Высота линии */
+    background-color: #ffffff; /* Цвет линии */
+    transform: translateX(50%); /* Сдвигаем линию влево, чтобы она была не видна изначально */
+    transition: transform 0.7s ease, width 0.7s ease; /* Добавляем анимацию изменения ширины */
+    z-index: 0;
+}
+
+.footer1 ul li a:hover::after {
+    transform: translateX(50%); /* При наведении линия выезжает с лева на право */
+    width: 50%; /* Линия выезжает только на 50% длины слова */
+    z-index: 0;
+}
+
+.footer1 ul li a:hover {
+    color: #ffffff;
+    z-index: 0;
+}
+
+.books_table{
+    width: 100%;
+    text-align: center;
+    border: 3px solid #003a7e;
+    border-collapse: collapse ;
+}
+
+.books_table th{
+    border: 3px solid #003a7e;
+}
+.books_table td{
+    border: 1px solid #003a7e;
+}
+
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #003b7e52;
+}
+  .modal input{
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #003a7e;
+    color: #fff;
+    background-color: #003a7e;
+    margin-left: 25%;
+    transition: color 0.5s;
+  }
+  .modal input:hover{
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #003a7e;
+    color: #fff;
+    background-color: #004798;
+    margin-left: 25%;
+    transition: color 0.5s;
+  }
+  .modal select{
+    width: 71%;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #003a7e;
+    color: #003a7e;
+    background-color: #fff;
+    margin-left: 13%;
+    transition: color 0.5s;
+  }
+
+  .modal textarea{
+    width: 70%;
+    height: 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #003a7e;
+    color: #003a7e;
+    background-color: #fff;
+    margin-left: 13%;
+    transition: color 0.5s;
+    
+  }
+
+  .modal-content {
+    background-color: #eae0d7;
+    margin: 3% auto;
+    padding: 50px;
+    border: 2px solid #003b7e;
+    border-radius: 5px;
+    width: 30%;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+
+  .reviews-container {
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 20px;
+    background-color: #003a7e;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+  }
+  
+  .review {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .review h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333333;
+  }
+  
+  .review p {
+    margin-bottom: 0;
+    font-size: 16px;
+    color: #555555;
+    line-height: 1.5;
+    white-space: normal;
+  }
+  
+
+.add-review-btn{
+        background-color: #003b7e00;
+        color: #003a7e;
+        border-color: #003a7e;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        z-index: 1;
+}
+
+
+
+
+
+
+
+/* Стили для мобильных устройств */
+@media (max-width: 1080px) {
+    header {
+        height: 50px;
+    }
+    .head1{
+        margin-left: 0;
+    }
+
+    h1{
+        font-size: 15px;
+    }
+    p{
+        font-size: 12px;
+        text-align: center;
+    }
+    .content, .content3{
+        margin-right: 0;
+        margin-left: 0;
+        margin-top: 60px;
+    }
+    footer{
+        display: none;
+    }
+    section{
+        margin: top 0;
+    }
+    
+.reviews-container {
+    margin-left:0;
+    margin-right:0;
+    padding: 10px;
+    margin-bottom: 0;
+  }
+  
+  .review {
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .review h3 {
+    margin-top: 0;
+    font-size: 15px;
+    color: #333333;
+  }
+  
+  .review p {
+    margin-bottom: 0;
+    font-size: 13px;
+    color: #555555;
+    line-height: 1.5;
+    white-space: normal;
+  }
+    .add-review-btn{
+        width: 50%;
+        font-size: 13px;
+        margin-left: 24%;
+        
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+  
